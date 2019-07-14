@@ -1,6 +1,7 @@
 package com.example.reactivedemo.model;
 
 import lombok.*;
+import org.springframework.data.annotation.Id;
 import org.springframework.hateoas.ResourceSupport;
 
 @Data
@@ -9,6 +10,7 @@ import org.springframework.hateoas.ResourceSupport;
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper = false)
 public class Customer extends ResourceSupport {
+    @Id
     private Long cid;
     private String name;
     private String surname;
