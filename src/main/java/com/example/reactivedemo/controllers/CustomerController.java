@@ -25,9 +25,9 @@ public class CustomerController {
         return customerService.findAll();
     }
 
-    @GetMapping(path = "/{cid}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public Mono<Customer> getCustomer(@PathVariable("cid") Long cid) {
-        return customerService.findById(cid);
+    @GetMapping(path = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public Mono<Customer> getCustomer(@PathVariable("id") Long id) {
+        return customerService.findById(id);
     }
 
 }
