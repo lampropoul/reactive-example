@@ -14,7 +14,7 @@ import org.springframework.data.relational.core.mapping.RelationalMappingContext
 public class DataflowConfiguration {
 
     @Bean
-    CustomerRepository repository(R2dbcRepositoryFactory factory) {
+    CustomerRepository customerRepository(R2dbcRepositoryFactory factory) {
         return factory.getRepository(CustomerRepository.class);
     }
 
