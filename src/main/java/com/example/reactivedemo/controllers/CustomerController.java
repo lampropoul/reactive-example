@@ -43,9 +43,9 @@ public class CustomerController {
         return list;
     }
 
-    @GetMapping(path = "/{id}", produces = "application/json")
-    public Customer getCustomer(@PathVariable("id") Long id) {
-        return list.get(Math.toIntExact(id - 1));
+    @GetMapping(path = "/{cid}", produces = "application/json")
+    public Customer getCustomer(@PathVariable("cid") Long cid) {
+        return list.get(Math.toIntExact(cid - 1));
     }
 
 }
