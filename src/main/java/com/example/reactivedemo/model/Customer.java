@@ -1,16 +1,15 @@
 package com.example.reactivedemo.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
+import org.springframework.hateoas.ResourceSupport;
 
 @Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class Customer {
-    private Long id;
+@EqualsAndHashCode(callSuper = false)
+public class Customer extends ResourceSupport {
+    private Long cid;
     private String name;
     private String surname;
     private String profession;

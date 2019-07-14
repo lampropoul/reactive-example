@@ -1,6 +1,7 @@
 package com.example.reactivedemo.controllers;
 
 import com.example.reactivedemo.model.Customer;
+import org.springframework.hateoas.mvc.ControllerLinkBuilder;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,18 +20,20 @@ public class CustomerController {
 
     public CustomerController(DataSource dataSource) {
         Customer customer = Customer.builder()
-                .id(1L)
+                .cid(1L)
                 .name("Bill")
                 .surname("Lamp")
                 .profession("Engineer")
                 .build();
+        customer.add(ControllerLinkBuilder.linkTo(CustomerController.class).slash(customer.getCid()).withSelfRel());
         list.add(customer);
         customer = Customer.builder()
-                .id(2L)
+                .cid(2L)
                 .name("Foo")
                 .surname("Bar")
                 .profession("Designer")
                 .build();
+        customer.add(ControllerLinkBuilder.linkTo(CustomerController.class).slash(customer.getCid()).withSelfRel());
         list.add(customer);
         this.dataSource = dataSource;
     }
